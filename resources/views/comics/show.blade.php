@@ -6,7 +6,7 @@
     <main class="pt-5 container">
         <h1 class="mb-5 mt-3">{{ $item->title }}</h1>
         <div class="box d-flex">
-            <img src="{{ $item->image }}" alt="">
+            <img class="img-fluid" src="{{ $item->image }}" alt="">
             <div class="text m-5">
                 <h2>Series : {{ $item->series }}</h2>
                 <h3>Type : {{ $item->type }}</h3>

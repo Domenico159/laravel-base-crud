@@ -33,17 +33,6 @@
                                 SHOW
                             </a>
                         </td>
-                        <td>
-                            <a class="btn btn-warning" href="">
-                                EDIT
-                            </a>
-                        </td>
-                        <td>
-                            <a class="btn btn-danger" href="">
-                                DELETE
-                            </a>
-                        </td>
-
                     </tr>
                 @endforeach
             </tbody>

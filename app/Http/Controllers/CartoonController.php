@@ -51,7 +51,11 @@ class CartoonController extends Controller
 
         $item = Item::find($id);
 
-        return view('comics.show', compact('item'));
+        if ($item) {
+            return view('comics.show', compact('item'));
+        }
+
+        abort(404);
     }
 
     /**
