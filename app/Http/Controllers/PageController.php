@@ -13,8 +13,4 @@ class PageController extends Controller
         return view('main');
     }
 
-    public function comics()
-    {
-        return view('comics');
-    }
 }
