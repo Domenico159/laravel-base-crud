@@ -29,7 +29,7 @@
             <p class="mt-3">{{ $item->description }}</p>
         </div>
 
-        <a class="btn btn-success" href="{{ route('comics.index') }}">Back to home</a>
+        <a class="btn btn-success mb-3" href="{{ route('comics.index') }}">Back to home</a>
 
     </main>
 
