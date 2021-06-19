@@ -11736,6 +11736,11 @@ body main {
   flex-grow: 2;
 }
 
+body main .description {
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
 body footer {
   min-height: 35px;
   padding: 10px;

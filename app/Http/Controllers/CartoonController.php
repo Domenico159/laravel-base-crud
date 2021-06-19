@@ -94,7 +94,14 @@ class CartoonController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $item = Item::find($id);
+
+        if ($item) {
+            return view('comics.edit', compact('item'));
+        }
+
+        abort(404);
     }
 
     /**
@@ -106,7 +113,15 @@ class CartoonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data =  $request->all();
+
+        $this_post = Item::find($id);
+
+        $data['slug'] = Str::slug($data['title'], '-');
+
+        $this_post->update($data);
+
+        return redirect()->route('comics.show', $this_post->id);
     }
 
     /**
@@ -117,6 +132,10 @@ class CartoonController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this_post = Item::find($id);
+
+        $this_post->delete();
+
+        return redirect()->route('comics.index')->with('deleted', $this_post->title);
     }
 }

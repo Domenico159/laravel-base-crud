@@ -5,8 +5,13 @@ body {
     flex-direction: column;
     min-height: 100vh;
 
+
     main {
         flex-grow: 2;
+        .description {
+            overflow: hidden;
+            word-wrap: break-word;
+        }
     }
 
     footer {

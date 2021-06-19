@@ -6,6 +6,13 @@
     <main class="pt-5 container">
         <h1 class="mb-5 mt-3">Comics</h1>
 
+        @if (session('deleted'))
+            <div class="alert alert-success">
+                <strong>{{ session('deleted') }}</strong>
+                Succesfully deleted item.
+            </div>
+        @endif
+
         <table class="table mb-5">
             <thead>
                 <tr>
@@ -39,9 +46,12 @@
                             </a>
                         </td>
                         <td>
-                            <a class="btn btn-danger" href="{{ route('comics.destroy', $item->id) }}">
-                                DELETE
-                            </a>
+                            <form method="POST" action="{{ route('comics.destroy', $item->id) }}">
+                                @csrf
+                                @method('DELETE')
+
+                                <input class="btn btn-danger" type="submit" value="DELETE">
+                            </form>
                         </td>
                     </tr>
                 @endforeach
