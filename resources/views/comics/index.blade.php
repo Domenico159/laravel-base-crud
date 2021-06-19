@@ -27,10 +27,20 @@
                         <td>{{ $item->series }}</td>
                         <td>{{ $item->sale_date }}</td>
                         <td>{{ $item->type }}</td>
-                        <td>{{ $item->price }}</td>
+                        <td>{{ $item->price }} €</td>
                         <td>
                             <a class="btn btn-success" href="{{ route('comics.show', $item->id) }}">
                                 SHOW
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn btn-warning" href="{{ route('comics.edit', $item->id) }}">
+                                EDIT
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger" href="{{ route('comics.destroy', $item->id) }}">
+                                DELETE
                             </a>
                         </td>
                     </tr>

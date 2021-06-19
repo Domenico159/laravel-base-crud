@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Item;
 
 class CartoonController extends Controller
@@ -26,7 +27,7 @@ class CartoonController extends Controller
      */
     public function create()
     {
-        //
+        return view('comics.create');
     }
 
     /**
@@ -37,7 +38,34 @@ class CartoonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        //validazione
+
+
+        //push db
+        $new_cartoon = new Item();
+
+        // Fisrt method
+
+        // $new_cartoon->title = $data['title'];
+        // $new_cartoon->slug = Str::slug($data['title'], '-');
+        // $new_cartoon->description = $data['content'];
+        // $new_cartoon->image = $data['image'];
+        // $new_cartoon->series = $data['series'];
+        // $new_cartoon->sale_date = $data['sale_date'];
+        // $new_cartoon->type = $data['type'];
+        // $new_cartoon->price = $data['price'];
+
+        // Second method
+
+        $data['slug'] = Str::slug($data['title'], '-');
+
+        $new_cartoon->fill($data);
+
+        $new_cartoon->save();
+
+        return redirect()->route('comics.show', $new_cartoon->id);
     }
 
     /**
